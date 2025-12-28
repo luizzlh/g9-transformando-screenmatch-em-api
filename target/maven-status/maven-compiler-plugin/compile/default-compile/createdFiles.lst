@@ -1,0 +1,12 @@
+br\com\alura\screenmatch\models\DadosSerie.class
+br\com\alura\screenmatch\ScreenmatchApplication.class
+br\com\alura\screenmatch\service\ConsultaChatGPT.class
+br\com\alura\screenmatch\service\ConsumoAPI.class
+br\com\alura\screenmatch\models\Categoria.class
+br\com\alura\screenmatch\models\DadosEpisodio.class
+br\com\alura\screenmatch\models\Serie.class
+br\com\alura\screenmatch\service\IConverteDados.class
+br\com\alura\screenmatch\service\ConverteDados.class
+br\com\alura\screenmatch\principal\Principal.class
+br\com\alura\screenmatch\models\DadosTemporada.class
+br\com\alura\screenmatch\models\Episodio.class
