@@ -69,13 +69,8 @@ public class SerieService {
                 .collect(Collectors.toList());
     }
 
-    public List<SerieDTO> obterSeriesPorCategoria(String categoria) {
-        Categoria cat = Categoria.fromString(categoria);
-        return repositorio.findByGenero(cat)
-                .stream()
-                .map(serie -> new SerieDTO(serie.getId(), serie.getTitulo(),
-                        serie.getTotalTemporadas(), serie.getAvaliacao(), serie.getGenero(),
-                        serie.getAtores(), serie.getPoster(), serie.getSinopse()))
-                .collect(Collectors.toList());
+    public List<SerieDTO> obterSeriesPorCategoria(String nomeGenero) {
+        Categoria categoria = Categoria.fromPortugues(nomeGenero);
+        return converteDados(repositorio.findByGenero(categoria));
     }
 }
