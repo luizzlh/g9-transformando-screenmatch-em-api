@@ -2,6 +2,7 @@ package br.com.alura.screenmatch.service;
 
 import br.com.alura.screenmatch.dto.EpisodioDTO;
 import br.com.alura.screenmatch.dto.SerieDTO;
+import br.com.alura.screenmatch.models.Categoria;
 import br.com.alura.screenmatch.models.Episodio;
 import br.com.alura.screenmatch.models.Serie;
 import br.com.alura.screenmatch.repository.SerieRepository;
@@ -65,6 +66,16 @@ public class SerieService {
     public List<EpisodioDTO> obterEpisodiosPorTemporada(Long id, Integer temporada) {
         return repositorio.obterEpisodiosPorTemporada(id, temporada).stream()
                 .map(episodio -> new EpisodioDTO(episodio.getTemporada(), episodio.getNumero(), episodio.getTitulo()))
+                .collect(Collectors.toList());
+    }
+
+    public List<SerieDTO> obterSeriesPorCategoria(String categoria) {
+        Categoria cat = Categoria.fromString(categoria);
+        return repositorio.findByGenero(cat)
+                .stream()
+                .map(serie -> new SerieDTO(serie.getId(), serie.getTitulo(),
+                        serie.getTotalTemporadas(), serie.getAvaliacao(), serie.getGenero(),
+                        serie.getAtores(), serie.getPoster(), serie.getSinopse()))
                 .collect(Collectors.toList());
     }
 }

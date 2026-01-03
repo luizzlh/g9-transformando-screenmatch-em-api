@@ -42,4 +42,6 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
     @Query("SELECT E FROM Serie S JOIN S.episodios E WHERE S.id = :id AND E.temporada = :temporada")
     List<Episodio> obterEpisodiosPorTemporada(Long id, Integer temporada);
 
+    List<Serie> findSeriesByGenero(Categoria genero);
+
 }
